@@ -1,0 +1,18 @@
+SELECT ?person ?personLabel ?personImage ?personGender ?child ?childLabel ?childImage ?childGender
+WHERE {
+  # Person born after 1900 with an image and gender
+  ?person wdt:P31 wd:Q5;  # Person is a human
+         wdt:P569 ?birthDate;  # Person has a birth date
+         wdt:P18 ?personImage;  # Person has an image
+         wdt:P21 ?personGender;  # Person's gender
+         wdt:P40 ?child.  # Person has a child
+  FILTER(YEAR(?birthDate) > 1900)  # Born after 1900
+
+  # Child with an image and gender
+  ?child wdt:P31 wd:Q5;  # Child is a human
+         wdt:P18 ?childImage;  # Child has an image
+         wdt:P21 ?childGender.  # Child's gender
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+LIMIT 10000
