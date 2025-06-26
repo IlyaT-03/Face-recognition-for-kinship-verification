@@ -1,0 +1,8 @@
+onnxruntime==1.20.1
+insightface==0.7.3
+numpy==2.2.3
+scipy==1.15.1
+pillow==11.1.0
+opencv-python-headless==4.10.0.84
+scikit-learn==1.6.1
+pandas==2.2.2
